@@ -14,71 +14,58 @@
   --cream:#f3ede0;--muted:#c7d6cf;--dim:rgba(199,214,207,0.45);
   --active:#4caf74;--warm:#e8a84c;--danger:#e05c5c;--blue:#88a8e8;
 }
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--cream);min-height:100vh;}
+body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--cream);min-height:100vh;}
 
-/* TOPBAR */
-.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 32px;background:rgba(10,34,48,0.97);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;}
-.topbar-left{display:flex;align-items:center;gap:12px;}
-.topbar-title{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--cream);}
+.homenav{background:rgba(10,34,48,0.97);padding:10px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:999;}
+.homenav a{color:var(--gl);text-decoration:none;font-size:12px;font-weight:600;padding:6px 14px;border-radius:8px;border:1px solid rgba(111,174,125,0.3);background:rgba(111,174,125,0.08);}
+.homenav span{color:var(--dim);font-size:12px;}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 32px;background:rgba(10,34,48,0.95);border-bottom:1px solid var(--border);}
+.topbar-title{font-family:"Space Grotesk",sans-serif;font-size:15px;font-weight:600;}
 .topbar-sub{font-size:11px;color:var(--dim);margin-top:1px;}
 .topbar-right{display:flex;gap:8px;align-items:center;}
-.btn{padding:8px 18px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;border:none;font-family:'Inter',sans-serif;transition:all 0.15s;letter-spacing:0.02em;}
+.btn{padding:8px 18px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;border:none;font-family:"Inter",sans-serif;transition:all 0.15s;}
 .btn-green{background:var(--gl);color:#0a2230;}
 .btn-green:hover{background:#5d9a6b;}
 .btn-outline{background:transparent;color:var(--gl);border:1px solid rgba(111,174,125,0.3);}
 .btn-outline:hover{background:rgba(111,174,125,0.08);}
 .btn-danger{background:rgba(224,92,92,0.1);color:var(--danger);border:1px solid rgba(224,92,92,0.2);}
-.btn-danger:hover{background:rgba(224,92,92,0.2);}
 .count-badge{padding:4px 12px;border-radius:999px;background:rgba(111,174,125,0.12);border:1px solid rgba(111,174,125,0.2);font-size:11px;color:var(--gl);font-weight:600;}
 
-/* CONTROLS */
-.controls{padding:20px 32px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--border);}
-.search-wrap{position:relative;flex:1;min-width:220px;}
-.search-wrap input{width:100%;padding:10px 14px 10px 38px;border-radius:9px;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--cream);font-family:'Inter',sans-serif;font-size:13px;outline:none;transition:border-color 0.15s;}
+.sync-bar{padding:8px 32px;background:rgba(136,168,232,0.08);border-bottom:1px solid rgba(136,168,232,0.15);display:flex;align-items:center;gap:10px;font-size:12px;color:var(--blue);}
+.sync-dot{width:8px;height:8px;border-radius:50%;background:var(--blue);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+.sync-bar.error{background:rgba(224,92,92,0.08);border-color:rgba(224,92,92,0.15);color:var(--danger);}
+.sync-bar.error .sync-dot{background:var(--danger);animation:none;}
+.sync-bar.success{background:rgba(76,175,116,0.08);border-color:rgba(76,175,116,0.15);color:var(--active);}
+.sync-bar.success .sync-dot{background:var(--active);animation:none;}
+
+.controls{padding:16px 32px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--border);}
+.search-wrap{position:relative;flex:1;min-width:200px;}
+.search-wrap input{width:100%;padding:9px 12px 9px 36px;border-radius:9px;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--cream);font-family:"Inter",sans-serif;font-size:12px;outline:none;transition:border-color 0.15s;}
 .search-wrap input:focus{border-color:rgba(111,174,125,0.4);}
 .search-wrap input::placeholder{color:var(--dim);}
-.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--dim);font-size:14px;}
-.filter-select{padding:10px 14px;border-radius:9px;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--cream);font-family:'Inter',sans-serif;font-size:12px;cursor:pointer;outline:none;}
+.search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--dim);font-size:13px;}
+.filter-select{padding:9px 12px;border-radius:9px;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--cream);font-family:"Inter",sans-serif;font-size:12px;cursor:pointer;outline:none;}
 .filter-select option{background:#112e2e;}
 
-/* STATS ROW */
-.stats-row{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;padding:20px 32px;border-bottom:1px solid var(--border);}
+.stats-row{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;padding:16px 32px;border-bottom:1px solid var(--border);}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 16px;position:relative;overflow:hidden;}
+.stat-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--sc,var(--gl));}
+.stat-label{font-size:10px;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;}
+.stat-val{font-family:"Space Grotesk",sans-serif;font-size:24px;font-weight:700;color:var(--cream);}
+.stat-sub{font-size:10px;color:var(--dim);margin-top:3px;}
 
-@media (max-width: 768px) {
-  .topbar{padding:12px 16px;flex-wrap:wrap;gap:8px;}
-  .topbar-right{width:100%;justify-content:flex-start;flex-wrap:wrap;}
-  .controls{padding:14px 16px;}
-  .stats-row{grid-template-columns:repeat(2,1fr);gap:8px;padding:14px 16px;}
-  .stat-card{padding:10px 12px;}
-  .stat-val{font-size:20px;}
-  .stat-label{font-size:9px;}
-  .table-wrap{padding:14px 10px 30px;}
-  .modal{padding:20px;width:100%;border-radius:14px;}
-  .form-row{grid-template-columns:1fr;}
-  .detail-grid{grid-template-columns:1fr;}
-}
-.stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 18px;position:relative;overflow:hidden;}
-.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--sc,var(--gl));}
-.stat-label{font-size:10px;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;}
-.stat-val{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:var(--cream);}
-.stat-sub{font-size:10px;color:var(--dim);margin-top:4px;}
-
-/* TABLE */
-.table-wrap{padding:20px 32px 40px;overflow-x:auto;}
+.table-wrap{padding:16px 32px 40px;overflow-x:auto;}
 .client-table{width:100%;border-collapse:collapse;min-width:900px;}
 .client-table thead tr{background:rgba(28,77,64,0.4);border-bottom:1px solid rgba(111,174,125,0.2);}
-.client-table thead th{padding:11px 14px;text-align:left;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gs);cursor:pointer;white-space:nowrap;user-select:none;}
-.client-table thead th:hover{color:var(--cream);}
+.client-table thead th{padding:10px 12px;text-align:left;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gs);white-space:nowrap;}
 .client-table tbody tr{border-bottom:1px solid var(--border2);transition:background 0.12s;cursor:pointer;}
 .client-table tbody tr:hover{background:rgba(111,174,125,0.05);}
-.client-table tbody td{padding:13px 14px;font-size:13px;color:var(--cream);}
-.client-table tbody td.dim{color:var(--muted);}
+.client-table tbody td{padding:12px 12px;font-size:12px;color:var(--cream);}
 
-/* AVATAR */
-.avatar{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;flex-shrink:0;}
-
-/* BADGES */
-.badge{padding:3px 10px;border-radius:999px;font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;white-space:nowrap;}
+.avatar{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:"Space Grotesk",sans-serif;font-size:11px;font-weight:700;flex-shrink:0;}
+.badge{padding:3px 9px;border-radius:999px;font-size:9px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;}
 .badge-lead{background:rgba(136,168,232,0.15);color:var(--blue);border:1px solid rgba(136,168,232,0.25);}
 .badge-active{background:rgba(76,175,116,0.15);color:var(--active);border:1px solid rgba(76,175,116,0.25);}
 .badge-warm{background:rgba(232,168,76,0.15);color:var(--warm);border:1px solid rgba(232,168,76,0.25);}
@@ -88,50 +75,47 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--cream);min-
 .badge-project{background:rgba(200,130,200,0.1);color:#c88fc8;border:1px solid rgba(200,130,200,0.2);}
 .badge-both{background:rgba(232,168,76,0.1);color:var(--warm);border:1px solid rgba(232,168,76,0.2);}
 
-.action-btns{display:flex;gap:6px;}
-.action-btn{padding:5px 10px;border-radius:6px;font-size:10px;font-weight:600;cursor:pointer;border:none;font-family:'Inter',sans-serif;transition:all 0.15s;letter-spacing:0.04em;}
-.action-btn-view{background:rgba(111,174,125,0.1);color:var(--gl);border:1px solid rgba(111,174,125,0.2);}
-.action-btn-view:hover{background:rgba(111,174,125,0.2);}
-.action-btn-inv{background:rgba(136,168,232,0.1);color:var(--blue);border:1px solid rgba(136,168,232,0.2);}
-.action-btn-inv:hover{background:rgba(136,168,232,0.2);}
-.action-btn-del{background:rgba(224,92,92,0.08);color:var(--danger);border:1px solid rgba(224,92,92,0.15);}
-.action-btn-del:hover{background:rgba(224,92,92,0.18);}
+.action-btns{display:flex;gap:5px;}
+.action-btn{padding:4px 9px;border-radius:5px;font-size:10px;font-weight:600;cursor:pointer;border:none;font-family:"Inter",sans-serif;transition:all 0.15s;}
+.ab-view{background:rgba(111,174,125,0.1);color:var(--gl);border:1px solid rgba(111,174,125,0.2);}
+.ab-edit{background:rgba(136,168,232,0.1);color:var(--blue);border:1px solid rgba(136,168,232,0.2);}
+.ab-del{background:rgba(224,92,92,0.08);color:var(--danger);border:1px solid rgba(224,92,92,0.15);}
 
-.empty-state{text-align:center;padding:60px 20px;color:var(--dim);}
-.empty-icon{font-size:40px;margin-bottom:12px;}
-.empty-text{font-size:14px;margin-bottom:6px;color:var(--muted);}
-.empty-sub{font-size:12px;}
+.empty-state{text-align:center;padding:50px 20px;color:var(--dim);}
+.empty-icon{font-size:36px;margin-bottom:10px;}
 
-/* MODAL OVERLAY */
-.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:300;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:300;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
 .overlay.open{display:flex;}
-.modal{background:#0e2d2d;border:1px solid var(--border);border-radius:18px;width:620px;max-width:95vw;max-height:90vh;overflow-y:auto;padding:32px;}
-.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;}
-.modal-title{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;color:var(--cream);}
+.modal{background:#0e2d2d;border:1px solid var(--border);border-radius:18px;width:600px;max-width:95vw;max-height:90vh;overflow-y:auto;padding:28px;}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+.modal-title{font-family:"Space Grotesk",sans-serif;font-size:16px;font-weight:700;}
 .modal-close{background:transparent;border:none;color:var(--dim);font-size:22px;cursor:pointer;padding:4px 8px;border-radius:6px;}
-.modal-close:hover{color:var(--cream);background:rgba(255,255,255,0.06);}
-.modal-section{margin-bottom:20px;}
-.modal-section-title{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gs);margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid var(--border);}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-label{display:block;font-size:10px;color:var(--dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px;margin-top:12px;}
-input,select,textarea{width:100%;padding:10px 12px;border-radius:8px;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--cream);font-family:'Inter',sans-serif;font-size:13px;transition:border-color 0.15s;outline:none;}
+.modal-close:hover{color:var(--cream);}
+.msec{margin-bottom:18px;}
+.msec-title{font-family:"Space Grotesk",sans-serif;font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gs);margin-bottom:10px;padding-bottom:5px;border-bottom:1px solid var(--border);}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+label{display:block;font-size:10px;color:var(--dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px;margin-top:10px;}
+input,select,textarea{width:100%;padding:9px 11px;border-radius:7px;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--cream);font-family:"Inter",sans-serif;font-size:12px;outline:none;transition:border-color 0.15s;}
 input:focus,select:focus,textarea:focus{border-color:rgba(111,174,125,0.4);}
 input::placeholder,textarea::placeholder{color:var(--dim);}
 select option{background:#112e2e;color:var(--cream);}
-textarea{resize:vertical;min-height:60px;}
-.modal-footer{display:flex;gap:10px;justify-content:flex-end;margin-top:24px;padding-top:20px;border-top:1px solid var(--border);}
+textarea{resize:vertical;min-height:55px;}
+.modal-footer{display:flex;gap:8px;justify-content:flex-end;margin-top:20px;padding-top:16px;border-top:1px solid var(--border);}
 
-/* CLIENT DETAIL MODAL */
-.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;}
-.detail-item{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:10px;padding:12px 14px;}
-.detail-label{font-size:10px;color:var(--dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px;}
-.detail-val{font-size:13px;color:var(--cream);font-weight:500;}
-.pipeline-row{display:flex;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid var(--border2);}
-.pipeline-row:last-child{border-bottom:none;}
-.pipeline-label{font-size:12px;color:var(--muted);flex:1;}
-.pipeline-link{font-size:11px;color:var(--gl);text-decoration:none;padding:4px 10px;border-radius:6px;background:rgba(111,174,125,0.1);border:1px solid rgba(111,174,125,0.2);}
-.pipeline-link:hover{background:rgba(111,174,125,0.2);}
+.saving-spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(111,174,125,0.3);border-top-color:var(--gl);border-radius:50%;animation:spin 0.7s linear infinite;vertical-align:middle;margin-right:6px;}
+@keyframes spin{to{transform:rotate(360deg);}}
 
+@media(max-width:768px){
+  .topbar{padding:12px 16px;flex-wrap:wrap;gap:8px;}
+  .topbar-right{width:100%;flex-wrap:wrap;}
+  .controls{padding:12px 16px;}
+  .stats-row{grid-template-columns:repeat(2,1fr);gap:8px;padding:12px 16px;}
+  .stat-val{font-size:20px;}
+  .table-wrap{padding:12px 10px 30px;}
+  .modal{padding:18px;}
+  .row2{grid-template-columns:1fr;}
+  .sync-bar{padding:8px 16px;}
+}
 ::-webkit-scrollbar{width:4px;}
 ::-webkit-scrollbar-track{background:transparent;}
 ::-webkit-scrollbar-thumb{background:rgba(111,174,125,0.2);border-radius:99px;}
@@ -139,55 +123,37 @@ textarea{resize:vertical;min-height:60px;}
 </head>
 <body>
 
-<!-- TOPBAR -->
-<div style="background:rgba(10,34,48,0.97);padding:10px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(243,237,224,0.09);font-family:Inter,sans-serif;position:sticky;top:0;z-index:999;">
-  <a href="https://audiopinesolutions902.sharepoint.com/sites/APSControlHub/SitePages/CollabHome.aspx" target="_top" style="color:#6fae7d;text-decoration:none;font-size:12px;font-weight:600;padding:6px 14px;border-radius:8px;border:1px solid rgba(111,174,125,0.3);background:rgba(111,174,125,0.08)">← APS Home</a>
-  <span style="color:rgba(199,214,207,0.45);font-size:12px;">Client Database</span>
+<div class="homenav">
+  <a href="https://audiopinesolutions902.sharepoint.com/sites/APSControlHub/SitePages/CollabHome.aspx" target="_top">← APS Home</a>
+  <span>Client Database</span>
 </div>
+
 <div class="topbar">
-  <div class="topbar-left">
-    <div>
-      <div class="topbar-title">APS Client Database</div>
-      <div class="topbar-sub">Audio Pine Solutions · All clients, leads & pipeline</div>
-    </div>
+  <div>
+    <div class="topbar-title">APS Client Database</div>
+    <div class="topbar-sub">Audio Pine Solutions · Synced with SharePoint · Data persists permanently</div>
   </div>
   <div class="topbar-right">
-    <span class="count-badge" id="count-badge">0 clients</span>
+    <span class="count-badge" id="count-badge">Loading...</span>
     <button class="btn btn-outline" onclick="exportCSV()">Export CSV</button>
+    <button class="btn btn-outline" onclick="loadClients()">↻ Refresh</button>
     <button class="btn btn-green" onclick="openAddModal()">+ Add Client</button>
   </div>
 </div>
 
-<!-- STATS -->
-<div class="stats-row">
-  <div class="stat-card" style="--sc:#88a8e8">
-    <div class="stat-label">Total Leads</div>
-    <div class="stat-val" id="stat-leads">0</div>
-    <div class="stat-sub">In pipeline</div>
-  </div>
-  <div class="stat-card" style="--sc:#4caf74">
-    <div class="stat-label">Active Clients</div>
-    <div class="stat-val" id="stat-active">0</div>
-    <div class="stat-sub">Currently engaged</div>
-  </div>
-  <div class="stat-card" style="--sc:#e8a84c">
-    <div class="stat-label">Warm</div>
-    <div class="stat-val" id="stat-warm">0</div>
-    <div class="stat-sub">Follow up needed</div>
-  </div>
-  <div class="stat-card" style="--sc:#8fc19e">
-    <div class="stat-label">Completed</div>
-    <div class="stat-val" id="stat-completed">0</div>
-    <div class="stat-sub">Jobs done</div>
-  </div>
-  <div class="stat-card" style="--sc:#6fae7d">
-    <div class="stat-label">Total Revenue</div>
-    <div class="stat-val" id="stat-revenue">0</div>
-    <div class="stat-sub">KES across all clients</div>
-  </div>
+<div class="sync-bar" id="sync-bar">
+  <span class="sync-dot"></span>
+  <span id="sync-msg">Connecting to SharePoint...</span>
 </div>
 
-<!-- CONTROLS -->
+<div class="stats-row">
+  <div class="stat-card" style="--sc:#88a8e8"><div class="stat-label">Total Leads</div><div class="stat-val" id="stat-leads">—</div><div class="stat-sub">In pipeline</div></div>
+  <div class="stat-card" style="--sc:#4caf74"><div class="stat-label">Active Clients</div><div class="stat-val" id="stat-active">—</div><div class="stat-sub">Currently engaged</div></div>
+  <div class="stat-card" style="--sc:#e8a84c"><div class="stat-label">Warm</div><div class="stat-val" id="stat-warm">—</div><div class="stat-sub">Follow up needed</div></div>
+  <div class="stat-card" style="--sc:#8fc19e"><div class="stat-label">Completed</div><div class="stat-val" id="stat-completed">—</div><div class="stat-sub">Jobs done</div></div>
+  <div class="stat-card" style="--sc:#6fae7d"><div class="stat-label">Total Revenue</div><div class="stat-val" id="stat-revenue">—</div><div class="stat-sub">KES tracked</div></div>
+</div>
+
 <div class="controls">
   <div class="search-wrap">
     <span class="search-icon">🔍</span>
@@ -208,34 +174,27 @@ textarea{resize:vertical;min-height:60px;}
     <option value="Both">Both</option>
   </select>
   <select class="filter-select" id="sort-by" onchange="renderTable()">
-    <option value="date-desc">Newest First</option>
-    <option value="date-asc">Oldest First</option>
-    <option value="name-asc">Name A–Z</option>
-    <option value="revenue-desc">Revenue High–Low</option>
+    <option value="newest">Newest First</option>
+    <option value="oldest">Oldest First</option>
+    <option value="name">Name A–Z</option>
+    <option value="revenue">Revenue High–Low</option>
   </select>
 </div>
 
-<!-- TABLE -->
 <div class="table-wrap">
   <table class="client-table">
     <thead>
       <tr>
-        <th>Client</th>
-        <th>Contact</th>
-        <th>Type</th>
-        <th>Status</th>
-        <th>Project / Vehicle</th>
-        <th>Revenue (KES)</th>
-        <th>Last Contact</th>
-        <th>Actions</th>
+        <th>Client</th><th>Contact</th><th>Type</th><th>Status</th>
+        <th>Project / Vehicle</th><th>Revenue (KES)</th><th>Last Contact</th><th>Actions</th>
       </tr>
     </thead>
     <tbody id="client-tbody"></tbody>
   </table>
   <div class="empty-state" id="empty-state" style="display:none">
     <div class="empty-icon">👥</div>
-    <div class="empty-text">No clients found</div>
-    <div class="empty-sub">Add your first client or adjust your filters</div>
+    <div style="color:var(--muted);font-size:13px;margin-bottom:4px">No clients found</div>
+    <div style="font-size:11px">Add your first client or adjust filters</div>
   </div>
 </div>
 
@@ -244,30 +203,27 @@ textarea{resize:vertical;min-height:60px;}
   <div class="modal">
     <div class="modal-header">
       <div class="modal-title" id="modal-title">Add New Client</div>
-      <button class="modal-close" onclick="closeModal('add-modal')">×</button>
+      <button class="modal-close" onclick="closeModal()">×</button>
     </div>
-
-    <div class="modal-section">
-      <div class="modal-section-title">Basic Information</div>
-      <div class="form-row">
+    <div class="msec">
+      <div class="msec-title">Basic Information</div>
+      <div class="row2">
         <div><label>Full Name *</label><input type="text" id="f-name" placeholder="James Otieno"></div>
-        <div><label>Company / Organisation</label><input type="text" id="f-company" placeholder="Fulgent Post"></div>
+        <div><label>Company</label><input type="text" id="f-company" placeholder="Fulgent Post"></div>
       </div>
-      <div class="form-row">
-        <div><label>Phone *</label><input type="text" id="f-phone" placeholder="0748 025 186"></div>
+      <div class="row2">
+        <div><label>Phone</label><input type="text" id="f-phone" placeholder="0723 245 550"></div>
         <div><label>Email</label><input type="email" id="f-email" placeholder="james@example.com"></div>
       </div>
-      <div class="form-row">
-        <div>
-          <label>Client Type *</label>
+      <div class="row2">
+        <div><label>Client Type *</label>
           <select id="f-type">
             <option value="Vehicle">Vehicle Audio</option>
             <option value="Project">Project / Consulting</option>
             <option value="Both">Both</option>
           </select>
         </div>
-        <div>
-          <label>Status *</label>
+        <div><label>Status *</label>
           <select id="f-status">
             <option value="Lead">Lead</option>
             <option value="Warm">Warm</option>
@@ -278,97 +234,247 @@ textarea{resize:vertical;min-height:60px;}
         </div>
       </div>
     </div>
-
-    <div class="modal-section">
-      <div class="modal-section-title">Vehicle Details (if applicable)</div>
-      <div class="form-row">
+    <div class="msec">
+      <div class="msec-title">Vehicle Details</div>
+      <div class="row2">
         <div><label>Vehicle</label><input type="text" id="f-vehicle" placeholder="VW Golf MK1"></div>
         <div><label>Service Requested</label><input type="text" id="f-service" placeholder="Speaker installation"></div>
       </div>
-      <div class="form-row">
+      <div class="row2">
         <div><label>Technician</label><input type="text" id="f-tech" placeholder="Bill"></div>
         <div><label>Job ID</label><input type="text" id="f-jobid" placeholder="APS-2026-0049"></div>
       </div>
     </div>
-
-    <div class="modal-section">
-      <div class="modal-section-title">Project Details (if applicable)</div>
-      <div class="form-row">
-        <div><label>Project Name</label><input type="text" id="f-project" placeholder="Fulgent Post Transformation"></div>
-        <div><label>Service Period</label><input type="text" id="f-period" placeholder="June 2026 – July 2026"></div>
+    <div class="msec">
+      <div class="msec-title">Project Details</div>
+      <div class="row2">
+        <div><label>Project Name</label><input type="text" id="f-project" placeholder="Studio Systems Setup"></div>
+        <div><label>Service Period</label><input type="text" id="f-period" placeholder="June – July 2026"></div>
       </div>
     </div>
-
-    <div class="modal-section">
-      <div class="modal-section-title">Financial</div>
-      <div class="form-row">
-        <div><label>Total Contract / Invoice Value (KES)</label><input type="number" id="f-revenue" placeholder="45900"></div>
+    <div class="msec">
+      <div class="msec-title">Financial & Follow-up</div>
+      <div class="row2">
+        <div><label>Revenue / Contract Value (KES)</label><input type="number" id="f-revenue" placeholder="45900"></div>
         <div><label>Amount Paid (KES)</label><input type="number" id="f-paid" placeholder="30500"></div>
       </div>
-      <div class="form-row">
+      <div class="row2">
         <div><label>Last Contact Date</label><input type="date" id="f-lastcontact"></div>
-        <div><label>Next Follow-up Date</label><input type="date" id="f-followup"></div>
+        <div><label>Follow-up Date</label><input type="date" id="f-followup"></div>
       </div>
     </div>
-
-    <div class="modal-section">
-      <div class="modal-section-title">Notes</div>
-      <textarea id="f-notes" rows="3" placeholder="Any additional notes about this client..."></textarea>
+    <div class="msec">
+      <div class="msec-title">Notes</div>
+      <textarea id="f-notes" rows="3" placeholder="Additional notes..."></textarea>
     </div>
-
     <input type="hidden" id="f-edit-id">
     <div class="modal-footer">
-      <button class="btn btn-outline" onclick="closeModal('add-modal')">Cancel</button>
-      <button class="btn btn-green" onclick="saveClient()">Save Client</button>
-    </div>
-  </div>
-</div>
-
-<!-- DETAIL MODAL -->
-<div class="overlay" id="detail-modal">
-  <div class="modal">
-    <div class="modal-header">
-      <div class="modal-title" id="detail-title">Client Details</div>
-      <button class="modal-close" onclick="closeModal('detail-modal')">×</button>
-    </div>
-    <div id="detail-body"></div>
-    <div class="modal-footer">
-      <button class="btn btn-outline" onclick="closeModal('detail-modal')">Close</button>
-      <button class="btn btn-outline" id="detail-edit-btn">Edit Client</button>
-      <button class="btn btn-green" id="detail-invoice-btn">Create Invoice →</button>
+      <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-danger" id="delete-btn" style="display:none" onclick="deleteClient()">Delete</button>
+      <button class="btn btn-green" id="save-btn" onclick="saveClient()">Save to SharePoint</button>
     </div>
   </div>
 </div>
 
 <script>
-const FINANCE_URL = 'https://audiopinesolutions902.sharepoint.com/sites/APSControlHub/SitePages/Finance.aspx';
-const PROJECT_URL = 'https://audiopinesolutions902.sharepoint.com/:l:/s/APSControlHub/JADQlWcdQj4HTre2pp2TDtDNAWnSyA1new4OHF0zZxBlnSI?e=pjHwIc';
+const SITE = 'https://audiopinesolutions902.sharepoint.com/sites/APSControlHub';
+const LIST = 'APS Client Database';
+const API  = `${SITE}/_api/web/lists/getbytitle('${encodeURIComponent(LIST)}')/items`;
+const FINANCE_URL = `${SITE}/SitePages/Finance.aspx`;
+const PROJECT_URL = `${SITE}/Lists/APS%20PROJECT%20REGISTRY/AllItems.aspx`;
 
 let clients = [];
 let editingId = null;
 
-// STORAGE
-function save() { try { localStorage.setItem('aps_clients', JSON.stringify(clients)); } catch(e){} }
-function load() { try { const d = localStorage.getItem('aps_clients'); if(d) clients = JSON.parse(d); } catch(e){} }
-
-function genId() { return 'c_' + Date.now() + '_' + Math.random().toString(36).slice(2,6); }
-
-function getBadgeClass(status) {
-  return {Lead:'badge-lead',Warm:'badge-warm',Active:'badge-active',Completed:'badge-completed',Dormant:'badge-dormant'}[status] || 'badge-lead';
+function setSyncStatus(type, msg) {
+  const bar = document.getElementById('sync-bar');
+  const msgEl = document.getElementById('sync-msg');
+  bar.className = 'sync-bar ' + (type||'');
+  msgEl.textContent = msg;
 }
-function getTypeBadge(type) {
-  return {Vehicle:'badge-vehicle',Project:'badge-project',Both:'badge-both'}[type] || 'badge-vehicle';
-}
-function getAvatar(name, type) {
-  const initials = name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
-  const colors = {Vehicle:'rgba(100,149,237,0.2);color:#88a8e8',Project:'rgba(200,130,200,0.2);color:#c88fc8',Both:'rgba(232,168,76,0.2);color:#e8a84c'};
-  const style = colors[type] || colors.Vehicle;
-  return `<div class="avatar" style="background:${style}">${initials}</div>`;
-}
-function fmt(n) { return (parseFloat(n)||0).toLocaleString('en-KE'); }
-function fmtDate(d) { if(!d) return '—'; return new Date(d).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}); }
 
-// STATS
+function fmt(n){ return (parseFloat(n)||0).toLocaleString('en-KE'); }
+function fmtDate(d){ if(!d) return '—'; try{ return new Date(d).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}); }catch(e){ return d; } }
+function getBadgeClass(s){ return {Lead:'badge-lead',Warm:'badge-warm',Active:'badge-active',Completed:'badge-completed',Dormant:'badge-dormant'}[s]||'badge-lead'; }
+function getTypeBadge(t){ return {Vehicle:'badge-vehicle',Project:'badge-project',Both:'badge-both'}[t]||'badge-vehicle'; }
+function getAvatar(name,type){
+  const initials=(name||'?').split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+  const colors={Vehicle:'rgba(100,149,237,0.2);color:#88a8e8',Project:'rgba(200,130,200,0.2);color:#c88fc8',Both:'rgba(232,168,76,0.2);color:#e8a84c'};
+  return `<div class="avatar" style="background:${colors[type]||colors.Vehicle}">${initials}</div>`;
+}
+
+// ── SHAREPOINT REST API ──
+async function spFetch(url, opts={}) {
+  const headers = {
+    'Accept': 'application/json;odata=verbose',
+    'Content-Type': 'application/json;odata=verbose',
+    ...opts.headers
+  };
+  const res = await fetch(url, { credentials: 'include', ...opts, headers });
+  if (!res.ok) throw new Error(`SP Error ${res.status}: ${await res.text()}`);
+  return res.json();
+}
+
+async function getFormDigest() {
+  const r = await spFetch(`${SITE}/_api/contextinfo`, { method: 'POST' });
+  return r.d.GetContextWebInformation.FormDigestValue;
+}
+
+// LOAD
+async function loadClients() {
+  setSyncStatus('', 'Syncing with SharePoint...');
+  try {
+    const r = await spFetch(
+      `${API}?$select=Id,Title,Phone,Email,Company,ClientType,Status,Vehicle,ServiceRequested,Technician,JobID,ProjectName,ServicePeriod,Revenue,AmountPaid,LastContact,FollowUpDate,Notes,Created&$orderby=Created desc&$top=500`
+    );
+    clients = (r.d.results||[]).map(i=>({
+      id: i.Id,
+      name: i.Title||'',
+      phone: i.Phone||'',
+      email: i.Email||'',
+      company: i.Company||'',
+      type: i.ClientType||'Vehicle',
+      status: i.Status||'Lead',
+      vehicle: i.Vehicle||'',
+      service: i.ServiceRequested||'',
+      tech: i.Technician||'',
+      jobid: i.JobID||'',
+      project: i.ProjectName||'',
+      period: i.ServicePeriod||'',
+      revenue: i.Revenue||0,
+      paid: i.AmountPaid||0,
+      lastcontact: i.LastContact ? i.LastContact.split('T')[0] : '',
+      followup: i.FollowUpDate ? i.FollowUpDate.split('T')[0] : '',
+      notes: i.Notes||'',
+      created: i.Created,
+    }));
+    setSyncStatus('success', `Synced · ${clients.length} client${clients.length!==1?'s':''} · ${new Date().toLocaleTimeString()}`);
+    renderTable();
+    updateStats();
+  } catch(e) {
+    setSyncStatus('error', 'SharePoint sync failed — check you are signed in · ' + e.message);
+    console.error(e);
+  }
+}
+
+// SAVE (create or update)
+async function saveClient() {
+  const name = document.getElementById('f-name').value.trim();
+  if(!name){ alert('Client name is required'); return; }
+
+  const saveBtn = document.getElementById('save-btn');
+  saveBtn.innerHTML = '<span class="saving-spinner"></span>Saving...';
+  saveBtn.disabled = true;
+
+  const payload = {
+    __metadata: { type: `SP.Data.APS_x0020_Client_x0020_DatabaseListItem` },
+    Title: name,
+    Phone: document.getElementById('f-phone').value||null,
+    Email: document.getElementById('f-email').value||null,
+    Company: document.getElementById('f-company').value||null,
+    ClientType: document.getElementById('f-type').value||null,
+    Status: document.getElementById('f-status').value||null,
+    Vehicle: document.getElementById('f-vehicle').value||null,
+    ServiceRequested: document.getElementById('f-service').value||null,
+    Technician: document.getElementById('f-tech').value||null,
+    JobID: document.getElementById('f-jobid').value||null,
+    ProjectName: document.getElementById('f-project').value||null,
+    ServicePeriod: document.getElementById('f-period').value||null,
+    Revenue: parseFloat(document.getElementById('f-revenue').value)||null,
+    AmountPaid: parseFloat(document.getElementById('f-paid').value)||null,
+    LastContact: document.getElementById('f-lastcontact').value||null,
+    FollowUpDate: document.getElementById('f-followup').value||null,
+    Notes: document.getElementById('f-notes').value||null,
+  };
+
+  try {
+    const digest = await getFormDigest();
+    if(editingId) {
+      await spFetch(`${API}(${editingId})`, {
+        method: 'POST',
+        headers: { 'X-RequestDigest': digest, 'X-HTTP-Method': 'MERGE', 'IF-MATCH': '*' },
+        body: JSON.stringify(payload)
+      });
+    } else {
+      await spFetch(API, {
+        method: 'POST',
+        headers: { 'X-RequestDigest': digest },
+        body: JSON.stringify(payload)
+      });
+    }
+    closeModal();
+    await loadClients();
+  } catch(e) {
+    alert('Save failed: ' + e.message);
+    console.error(e);
+  } finally {
+    saveBtn.innerHTML = 'Save to SharePoint';
+    saveBtn.disabled = false;
+  }
+}
+
+// DELETE
+async function deleteClient() {
+  if(!editingId) return;
+  if(!confirm('Delete this client from SharePoint? This cannot be undone.')) return;
+  try {
+    const digest = await getFormDigest();
+    await spFetch(`${API}(${editingId})`, {
+      method: 'POST',
+      headers: { 'X-RequestDigest': digest, 'X-HTTP-Method': 'DELETE', 'IF-MATCH': '*' }
+    });
+    closeModal();
+    await loadClients();
+  } catch(e) {
+    alert('Delete failed: ' + e.message);
+  }
+}
+
+// RENDER TABLE
+function renderTable() {
+  const search = document.getElementById('search-input').value.toLowerCase();
+  const fStatus = document.getElementById('filter-status').value;
+  const fType = document.getElementById('filter-type').value;
+  const sort = document.getElementById('sort-by').value;
+
+  let filtered = clients.filter(c => {
+    const ms = !search || [c.name,c.company,c.phone,c.email,c.project,c.vehicle].some(v=>(v||'').toLowerCase().includes(search));
+    return ms && (!fStatus||c.status===fStatus) && (!fType||c.type===fType);
+  });
+
+  if(sort==='name') filtered.sort((a,b)=>(a.name||'').localeCompare(b.name||''));
+  else if(sort==='revenue') filtered.sort((a,b)=>(b.revenue||0)-(a.revenue||0));
+  else if(sort==='oldest') filtered.sort((a,b)=>new Date(a.created)-new Date(b.created));
+  else filtered.sort((a,b)=>new Date(b.created)-new Date(a.created));
+
+  const tbody = document.getElementById('client-tbody');
+  const empty = document.getElementById('empty-state');
+  document.getElementById('count-badge').textContent = clients.length + ' client' + (clients.length!==1?'s':'');
+
+  if(!filtered.length){ tbody.innerHTML=''; empty.style.display='block'; return; }
+  empty.style.display='none';
+
+  tbody.innerHTML = filtered.map(c=>`
+    <tr>
+      <td><div style="display:flex;align-items:center;gap:9px">
+        ${getAvatar(c.name,c.type)}
+        <div><div style="font-weight:600;font-size:13px">${c.name}</div><div style="font-size:10px;color:var(--dim)">${c.company||''}</div></div>
+      </div></td>
+      <td style="color:var(--muted)"><div>${c.phone||'—'}</div><div style="font-size:10px">${c.email||''}</div></td>
+      <td><span class="badge ${getTypeBadge(c.type)}">${c.type||'—'}</span></td>
+      <td><span class="badge ${getBadgeClass(c.status)}">${c.status||'—'}</span></td>
+      <td style="color:var(--muted);max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.project||c.vehicle||'—'}</td>
+      <td style="font-weight:600;color:var(--active)">${c.revenue?'KES '+fmt(c.revenue):'—'}</td>
+      <td style="font-size:11px;color:var(--muted)">${fmtDate(c.lastcontact)}</td>
+      <td onclick="event.stopPropagation()">
+        <div class="action-btns">
+          <button class="action-btn ab-edit" onclick="openEditModal(${c.id})">Edit</button>
+          <button class="action-btn ab-del" onclick="quickDelete(${c.id})">×</button>
+        </div>
+      </td>
+    </tr>`).join('');
+}
+
 function updateStats() {
   document.getElementById('stat-leads').textContent = clients.filter(c=>c.status==='Lead').length;
   document.getElementById('stat-active').textContent = clients.filter(c=>c.status==='Active').length;
@@ -376,222 +482,69 @@ function updateStats() {
   document.getElementById('stat-completed').textContent = clients.filter(c=>c.status==='Completed').length;
   const rev = clients.reduce((s,c)=>s+(parseFloat(c.revenue)||0),0);
   document.getElementById('stat-revenue').textContent = fmt(rev);
-  document.getElementById('count-badge').textContent = clients.length + ' client' + (clients.length!==1?'s':'');
 }
 
-// RENDER
-function renderTable() {
-  const search = document.getElementById('search-input').value.toLowerCase();
-  const filterStatus = document.getElementById('filter-status').value;
-  const filterType = document.getElementById('filter-type').value;
-  const sortBy = document.getElementById('sort-by').value;
-
-  let filtered = clients.filter(c => {
-    const matchSearch = !search ||
-      (c.name||'').toLowerCase().includes(search) ||
-      (c.company||'').toLowerCase().includes(search) ||
-      (c.phone||'').toLowerCase().includes(search) ||
-      (c.email||'').toLowerCase().includes(search) ||
-      (c.project||'').toLowerCase().includes(search) ||
-      (c.vehicle||'').toLowerCase().includes(search);
-    const matchStatus = !filterStatus || c.status === filterStatus;
-    const matchType = !filterType || c.type === filterType;
-    return matchSearch && matchStatus && matchType;
-  });
-
-  filtered.sort((a,b) => {
-    if(sortBy==='name-asc') return (a.name||'').localeCompare(b.name||'');
-    if(sortBy==='date-asc') return new Date(a.created)-new Date(b.created);
-    if(sortBy==='revenue-desc') return (parseFloat(b.revenue)||0)-(parseFloat(a.revenue)||0);
-    return new Date(b.created)-new Date(a.created);
-  });
-
-  const tbody = document.getElementById('client-tbody');
-  const empty = document.getElementById('empty-state');
-
-  if(!filtered.length) {
-    tbody.innerHTML='';
-    empty.style.display='block';
-    return;
-  }
-  empty.style.display='none';
-
-  tbody.innerHTML = filtered.map(c => `
-    <tr onclick="openDetail('${c.id}')">
-      <td><div style="display:flex;align-items:center;gap:10px">
-        ${getAvatar(c.name||'?', c.type)}
-        <div>
-          <div style="font-weight:600">${c.name||'—'}</div>
-          <div style="font-size:11px;color:var(--dim)">${c.company||''}</div>
-        </div>
-      </div></td>
-      <td class="dim">
-        <div>${c.phone||'—'}</div>
-        <div style="font-size:11px">${c.email||''}</div>
-      </td>
-      <td><span class="badge ${getTypeBadge(c.type)}">${c.type||'—'}</span></td>
-      <td><span class="badge ${getBadgeClass(c.status)}">${c.status||'—'}</span></td>
-      <td class="dim" style="max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">
-        ${c.project||c.vehicle||'—'}
-      </td>
-      <td style="font-weight:600;color:var(--active)">${c.revenue ? 'KES '+fmt(c.revenue) : '—'}</td>
-      <td class="dim" style="font-size:12px">${fmtDate(c.lastcontact)}</td>
-      <td onclick="event.stopPropagation()">
-        <div class="action-btns">
-          <button class="action-btn action-btn-view" onclick="openDetail('${c.id}')">View</button>
-          <button class="action-btn action-btn-inv" onclick="goInvoice('${c.id}')">Invoice</button>
-          <button class="action-btn action-btn-del" onclick="deleteClient('${c.id}')">×</button>
-        </div>
-      </td>
-    </tr>`).join('');
-
-  updateStats();
-}
-
-// ADD/EDIT
-function openAddModal(id=null) {
-  editingId = id;
-  document.getElementById('modal-title').textContent = id ? 'Edit Client' : 'Add New Client';
-  const fields = ['name','company','phone','email','type','status','vehicle','service','tech','jobid','project','period','revenue','paid','lastcontact','followup','notes'];
-  fields.forEach(f => { const el = document.getElementById('f-'+f); if(el) el.value=''; });
-  document.getElementById('f-type').value = 'Vehicle';
-  document.getElementById('f-status').value = 'Lead';
-
-  if(id) {
-    const c = clients.find(x=>x.id===id);
-    if(c) fields.forEach(f => { const el = document.getElementById('f-'+f); if(el && c[f]!==undefined) el.value=c[f]; });
-  }
+// MODAL
+function openAddModal() {
+  editingId = null;
+  document.getElementById('modal-title').textContent = 'Add New Client';
+  document.getElementById('delete-btn').style.display = 'none';
+  ['f-name','f-company','f-phone','f-email','f-vehicle','f-service','f-tech','f-jobid','f-project','f-period','f-revenue','f-paid','f-lastcontact','f-followup','f-notes'].forEach(id=>{ const el=document.getElementById(id); if(el) el.value=''; });
+  document.getElementById('f-type').value='Vehicle';
+  document.getElementById('f-status').value='Lead';
   document.getElementById('add-modal').classList.add('open');
 }
 
-function saveClient() {
-  const name = document.getElementById('f-name').value.trim();
-  const phone = document.getElementById('f-phone').value.trim();
-  if(!name) { alert('Client name is required'); return; }
-
-  const c = {
-    id: editingId || genId(),
-    created: editingId ? (clients.find(x=>x.id===editingId)||{}).created || new Date().toISOString() : new Date().toISOString(),
-    name, phone,
-    company: document.getElementById('f-company').value.trim(),
-    email: document.getElementById('f-email').value.trim(),
-    type: document.getElementById('f-type').value,
-    status: document.getElementById('f-status').value,
-    vehicle: document.getElementById('f-vehicle').value.trim(),
-    service: document.getElementById('f-service').value.trim(),
-    tech: document.getElementById('f-tech').value.trim(),
-    jobid: document.getElementById('f-jobid').value.trim(),
-    project: document.getElementById('f-project').value.trim(),
-    period: document.getElementById('f-period').value.trim(),
-    revenue: document.getElementById('f-revenue').value,
-    paid: document.getElementById('f-paid').value,
-    lastcontact: document.getElementById('f-lastcontact').value,
-    followup: document.getElementById('f-followup').value,
-    notes: document.getElementById('f-notes').value.trim(),
-  };
-
-  if(editingId) {
-    const idx = clients.findIndex(x=>x.id===editingId);
-    if(idx>=0) clients[idx]=c;
-  } else {
-    clients.unshift(c);
-  }
-
-  save(); closeModal('add-modal'); renderTable();
-}
-
-function deleteClient(id) {
-  if(!confirm('Delete this client? This cannot be undone.')) return;
-  clients = clients.filter(c=>c.id!==id);
-  save(); renderTable();
-}
-
-// DETAIL VIEW
-function openDetail(id) {
+function openEditModal(id) {
   const c = clients.find(x=>x.id===id);
   if(!c) return;
-
-  const balance = (parseFloat(c.revenue)||0) - (parseFloat(c.paid)||0);
-
-  document.getElementById('detail-title').textContent = c.name;
-  document.getElementById('detail-body').innerHTML = `
-    <div style="display:flex;gap:10px;align-items:center;margin-bottom:20px">
-      ${getAvatar(c.name||'?', c.type)}
-      <div>
-        <div style="font-weight:600;font-size:15px">${c.name}</div>
-        <div style="font-size:12px;color:var(--dim)">${c.company||''}</div>
-      </div>
-      <span class="badge ${getBadgeClass(c.status)}" style="margin-left:auto">${c.status}</span>
-      <span class="badge ${getTypeBadge(c.type)}">${c.type}</span>
-    </div>
-
-    <div class="detail-grid">
-      <div class="detail-item"><div class="detail-label">Phone</div><div class="detail-val">${c.phone||'—'}</div></div>
-      <div class="detail-item"><div class="detail-label">Email</div><div class="detail-val">${c.email||'—'}</div></div>
-      <div class="detail-item"><div class="detail-label">Vehicle</div><div class="detail-val">${c.vehicle||'—'}</div></div>
-      <div class="detail-item"><div class="detail-label">Service</div><div class="detail-val">${c.service||'—'}</div></div>
-      <div class="detail-item"><div class="detail-label">Project</div><div class="detail-val">${c.project||'—'}</div></div>
-      <div class="detail-item"><div class="detail-label">Period</div><div class="detail-val">${c.period||'—'}</div></div>
-      <div class="detail-item"><div class="detail-label">Contract Value</div><div class="detail-val" style="color:var(--cream);font-weight:700">${c.revenue ? 'KES '+fmt(c.revenue) : '—'}</div></div>
-      <div class="detail-item"><div class="detail-label">Balance Due</div><div class="detail-val" style="color:${balance>0?'var(--warm)':'var(--active)'};font-weight:700">${c.revenue ? 'KES '+fmt(balance) : '—'}</div></div>
-      <div class="detail-item"><div class="detail-label">Last Contact</div><div class="detail-val">${fmtDate(c.lastcontact)}</div></div>
-      <div class="detail-item"><div class="detail-label">Follow-up</div><div class="detail-val">${fmtDate(c.followup)}</div></div>
-    </div>
-
-    ${c.notes ? `<div class="detail-item" style="margin-bottom:16px"><div class="detail-label">Notes</div><div class="detail-val" style="margin-top:4px;line-height:1.6">${c.notes}</div></div>` : ''}
-
-    <div class="modal-section-title" style="margin-top:4px">Pipeline Links</div>
-    <div class="pipeline-row">
-      <span class="pipeline-label">📊 Create / view invoice for this client</span>
-      <a class="pipeline-link" href="${FINANCE_URL}" target="_top">Open Finance →</a>
-    </div>
-    <div class="pipeline-row">
-      <span class="pipeline-label">📁 View project in Project Registry</span>
-      <a class="pipeline-link" href="${PROJECT_URL}" target="_top">Open Registry →</a>
-    </div>`;
-
-  document.getElementById('detail-edit-btn').onclick = () => { closeModal('detail-modal'); openAddModal(id); };
-  document.getElementById('detail-invoice-btn').onclick = () => goInvoice(id);
-  document.getElementById('detail-modal').classList.add('open');
+  editingId = id;
+  document.getElementById('modal-title').textContent = 'Edit Client';
+  document.getElementById('delete-btn').style.display = '';
+  document.getElementById('f-name').value = c.name||'';
+  document.getElementById('f-company').value = c.company||'';
+  document.getElementById('f-phone').value = c.phone||'';
+  document.getElementById('f-email').value = c.email||'';
+  document.getElementById('f-type').value = c.type||'Vehicle';
+  document.getElementById('f-status').value = c.status||'Lead';
+  document.getElementById('f-vehicle').value = c.vehicle||'';
+  document.getElementById('f-service').value = c.service||'';
+  document.getElementById('f-tech').value = c.tech||'';
+  document.getElementById('f-jobid').value = c.jobid||'';
+  document.getElementById('f-project').value = c.project||'';
+  document.getElementById('f-period').value = c.period||'';
+  document.getElementById('f-revenue').value = c.revenue||'';
+  document.getElementById('f-paid').value = c.paid||'';
+  document.getElementById('f-lastcontact').value = c.lastcontact||'';
+  document.getElementById('f-followup').value = c.followup||'';
+  document.getElementById('f-notes').value = c.notes||'';
+  document.getElementById('add-modal').classList.add('open');
 }
 
-function goInvoice(id) {
-  window.open(FINANCE_URL, '_top');
+async function quickDelete(id) {
+  if(!confirm('Delete this client?')) return;
+  editingId = id;
+  await deleteClient();
+  editingId = null;
 }
 
-function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+function closeModal() {
+  document.getElementById('add-modal').classList.remove('open');
+  editingId = null;
+}
 
-// EXPORT CSV
 function exportCSV() {
-  if(!clients.length) { alert('No clients to export'); return; }
-  const headers = ['Name','Company','Phone','Email','Type','Status','Vehicle','Service','Project','Revenue (KES)','Paid (KES)','Last Contact','Notes'];
-  const rows = clients.map(c => [c.name,c.company,c.phone,c.email,c.type,c.status,c.vehicle,c.service,c.project,c.revenue,c.paid,c.lastcontact,c.notes].map(v=>`"${(v||'').replace(/"/g,'""')}"`).join(','));
-  const csv = [headers.join(','), ...rows].join('\n');
+  if(!clients.length){ alert('No clients to export'); return; }
+  const headers = ['Name','Company','Phone','Email','Type','Status','Vehicle','Service','Project','Revenue','Paid','Last Contact','Notes'];
+  const rows = clients.map(c=>[c.name,c.company,c.phone,c.email,c.type,c.status,c.vehicle,c.service,c.project,c.revenue,c.paid,c.lastcontact,c.notes].map(v=>`"${(v||'').toString().replace(/"/g,'""')}"`).join(','));
+  const csv = [headers.join(','),...rows].join('\n');
   const a = document.createElement('a');
-  a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
-  a.download = 'APS_Clients_' + new Date().toISOString().split('T')[0] + '.csv';
+  a.href = 'data:text/csv;charset=utf-8,'+encodeURIComponent(csv);
+  a.download = 'APS_Clients_'+new Date().toISOString().split('T')[0]+'.csv';
   a.click();
 }
 
-// SEED DATA
-function seedData() {
-  if(clients.length) return;
-  clients = [
-    {id:genId(),created:new Date('2026-05-10').toISOString(),name:'Juma Stephen',company:'',phone:'0723 245 550',email:'',type:'Vehicle',status:'Completed',vehicle:'VW Golf MK1',service:'Pioneer Component Speaker Installation',tech:'Bill',jobid:'APS-2026-0049',project:'',period:'',revenue:'45900',paid:'30500',lastcontact:'2026-05-10',followup:'',notes:'Balance of KES 15,400 outstanding'},
-    {id:genId(),created:new Date('2026-06-01').toISOString(),name:'Lawrence Odiwaa',company:'Fulgent Post',phone:'',email:'',type:'Project',status:'Active',vehicle:'',service:'',tech:'',jobid:'APS-FP-2026-006',project:'Fulgent Post Transformation',period:'June 2026 – July 2026',revenue:'175000',paid:'50000',lastcontact:'2026-06-01',followup:'2026-07-01',notes:'KES 125,000 outstanding. Current request KES 50,000.'},
-    {id:genId(),created:new Date('2026-04-15').toISOString(),name:'Omoka Lead',company:'Omoka',phone:'',email:'',type:'Project',status:'Warm',vehicle:'',service:'',tech:'',jobid:'',project:'Omoka App',period:'',revenue:'',paid:'',lastcontact:'',followup:'2026-06-20',notes:'Growth project, Build phase, Priority 4'},
-    {id:genId(),created:new Date('2026-03-01').toISOString(),name:'C.K Fleet',company:'C.K Fleet Management',phone:'',email:'',type:'Both',status:'Warm',vehicle:'',service:'Fleet audio installation',tech:'',jobid:'',project:'Fleet Management Systems',period:'',revenue:'',paid:'',lastcontact:'',followup:'2026-06-25',notes:'Core project, Idea phase, Priority 4'},
-  ];
-  save();
-}
-
-// INIT
-window.onload = () => {
-  load();
-  seedData();
-  renderTable();
-  updateStats();
-};
+window.onload = loadClients;
 </script>
 </body>
 </html>
